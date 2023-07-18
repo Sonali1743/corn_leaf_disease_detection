@@ -20,4 +20,25 @@ We have downloaded the image dataset from [Kaggle](https://www.kaggle.com/datase
 - Gray Leaf Spot - 574 images
 - Blight - 1146 images
 - Healthy - 1162 images
-vv
+
+*Figure 1: Number of Images by Class - Blight, Common Rust, Healthy and Gray Leaf Spot* <br/>
+![images_by_class](assets/images_by_class.png) <br/>
+
+## Analysis
+
+We utilized the InceptionV3 model, which is pre-trained on the ImageNet dataset, as a starting point for building our CNN model. By leveraging pre-trained weights, the model learned valuable features from ImageNet's extensive collection of labeled images.
+
+To tailor the InceptionV3 model to our specific task, we excluded the fully connected layers and utilized only the convolutional base. This base, along with our custom classifier, formed the foundation of our model. We froze the first 291 layers, making them non-trainable, while allowing the remaining layers to be fine-tuned.
+
+To enhance the model's ability to generalize, we applied data augmentation techniques, increasing the diversity of our input images. The augmented data was preprocessed using the 'preprocess_input' function, ensuring compatibility with the InceptionV3 model's requirements.
+
+To mitigate overfitting, we incorporated a dropout layer with a dropout rate of 0.2, providing regularization during training. Additionally, we added a fully connected dense layer with 4 units and a softmax activation function to serve as the final prediction layer, generating class probabilities for each input sample.
+
+For training, we compiled the model using the Nadam optimizer with a base learning rate of 0.001 and trained it for 10 epochs. To address the issue of imbalanced data representation, we assigned different weights to each class, allowing the model to prioritize under-represented classes during training.
+
+## Conclusion
+
+The model exhibited excellent performance, achieving an accuracy rate of approximately 94% on the validation dataset.
+
+*Figure 2: Training and Validation Accuracy Plot of the CNN Model* <br/>
+![accuracy_chart](assets/accuracy_chart.png) <br/>
