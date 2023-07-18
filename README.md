@@ -22,7 +22,7 @@ We have downloaded the image dataset from [Kaggle](https://www.kaggle.com/datase
 - Healthy - 1162 images
 
 *Figure 1: Number of Images by Class - Blight, Common Rust, Healthy and Gray Leaf Spot* <br/>
-![images_by_class](assets/images_by_class.png) <br/>
+![images_by_class](Assets/images_by_class.png) <br/>
 
 ## Analysis
 
@@ -41,4 +41,4 @@ For training, we compiled the model using the Nadam optimizer with a base learni
 The model exhibited excellent performance, achieving an accuracy rate of approximately 94% on the validation dataset.
 
 *Figure 2: Training and Validation Accuracy Plot of the CNN Model* <br/>
-![accuracy_chart](assets/accuracy_chart.png) <br/>
+![accuracy_chart](Assets/accuracy_chart.png) <br/>
